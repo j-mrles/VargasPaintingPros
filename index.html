@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vargas Painting Pros | Painting & Pressure Washing</title>
+  <meta name="description" content="Professional painting and pressure washing services. Free estimates. Clean. Paint. Transform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #1a2e4a;
+      --navy-dark: #0f1d32;
+      --blue-light: #a8d8ea;
+      --blue-accent: #3a9bd5;
+      --blue-pale: #e8f4fa;
+      --white: #ffffff;
+      --gray-100: #f7f9fc;
+      --gray-200: #e2e8f0;
+      --gray-600: #4a5568;
+      --gray-800: #2d3748;
+      --shadow: 0 4px 24px rgba(26, 46, 74, 0.10);
+      --shadow-lg: 0 12px 40px rgba(26, 46, 74, 0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--gray-800);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+
+    a { text-decoration: none; color: inherit; }
+
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+      transition: background 0.3s;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1200px; margin: 0 auto; padding: 14px 24px;
+    }
+    .nav-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800; font-size: 1.25rem; color: var(--navy);
+    }
+    .nav-brand span { color: var(--blue-accent); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600; font-size: 0.9rem;
+      color: var(--gray-600); transition: color 0.2s;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .nav-links a:hover { color: var(--blue-accent); }
+    .nav-cta {
+      background: var(--blue-accent); color: var(--white) !important;
+      padding: 10px 24px; border-radius: 6px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--navy); transform: translateY(-1px); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      width: 26px; height: 2.5px; background: var(--navy);
+      border-radius: 2px; transition: 0.3s;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1600&q=80') center/cover;
+      opacity: 0.25;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 700px; padding: 120px 24px 80px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(58,155,213,0.2); border: 1px solid rgba(58,155,213,0.4);
+      color: var(--blue-light); padding: 6px 18px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 600; margin-bottom: 24px;
+      letter-spacing: 1px; text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800; color: var(--white);
+      line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--blue-accent); }
+    .hero p {
+      font-size: 1.15rem; color: rgba(255,255,255,0.8);
+      margin-bottom: 36px; max-width: 520px;
+    }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px; border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; font-size: 0.95rem;
+      transition: all 0.3s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--blue-accent); color: var(--white);
+      box-shadow: 0 4px 16px rgba(58,155,213,0.4);
+    }
+    .btn-primary:hover { background: #2d8bc4; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    .btn-outline:hover { border-color: var(--blue-accent); color: var(--blue-accent); }
+
+    /* STATS BAR */
+    .stats-bar {
+      background: var(--white); box-shadow: var(--shadow-lg);
+      border-radius: 16px; margin-top: -50px; position: relative; z-index: 10;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      padding: 40px 20px;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem; font-weight: 800; color: var(--navy);
+    }
+    .stat-label { font-size: 0.9rem; color: var(--gray-600); margin-top: 4px; }
+
+    /* SECTIONS */
+    section { padding: 100px 0; }
+
+    .section-header {
+      text-align: center; max-width: 600px;
+      margin: 0 auto 60px;
+    }
+    .section-header h2 {
+      font-size: 2.2rem; font-weight: 800; color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .section-header p { color: var(--gray-600); font-size: 1.05rem; }
+    .section-tag {
+      display: inline-block; color: var(--blue-accent);
+      font-weight: 700; font-size: 0.85rem;
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+    }
+
+    /* SERVICES */
+    .services { background: var(--gray-100); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .service-card {
+      background: var(--white); border-radius: 16px;
+      overflow: hidden; box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .service-img {
+      height: 220px; overflow: hidden;
+    }
+    .service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .service-card:hover .service-img img { transform: scale(1.05); }
+    .service-body { padding: 28px; }
+    .service-body h3 {
+      font-size: 1.3rem; color: var(--navy); margin-bottom: 10px;
+    }
+    .service-body p { color: var(--gray-600); font-size: 0.95rem; }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+    .about-img {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: var(--shadow-lg); position: relative;
+    }
+    .about-img img { width: 100%; height: 500px; object-fit: cover; }
+    .about-accent {
+      position: absolute; bottom: -20px; right: -20px;
+      width: 180px; height: 180px;
+      background: var(--blue-accent); border-radius: 16px;
+      z-index: -1;
+    }
+    .about-content h2 {
+      font-size: 2.2rem; font-weight: 800; color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .about-content p { color: var(--gray-600); margin-bottom: 16px; }
+    .about-features { list-style: none; margin-top: 24px; }
+    .about-features li {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; font-weight: 500;
+    }
+    .check-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--blue-pale); color: var(--blue-accent);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; flex-shrink: 0;
+    }
+
+    /* GALLERY */
+    .gallery { background: var(--gray-100); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 260px);
+      gap: 20px;
+    }
+    .gallery-item {
+      border-radius: 12px; overflow: hidden;
+      position: relative; cursor: pointer;
+    }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item:first-child { grid-row: span 2; }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(transparent 50%, rgba(26,46,74,0.7));
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span {
+      position: absolute; bottom: 20px; left: 20px;
+      color: var(--white); font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    /* WHY US */
+    .why-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .why-card {
+      text-align: center; padding: 40px 28px;
+      background: var(--white); border-radius: 16px;
+      box-shadow: var(--shadow); transition: transform 0.3s;
+    }
+    .why-card:hover { transform: translateY(-4px); }
+    .why-icon {
+      width: 64px; height: 64px; margin: 0 auto 20px;
+      background: var(--blue-pale); border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+    }
+    .why-card h3 { color: var(--navy); margin-bottom: 10px; }
+    .why-card p { color: var(--gray-600); font-size: 0.95rem; }
+
+    /* TESTIMONIALS */
+    .testimonials { background: var(--navy); color: var(--white); }
+    .testimonials .section-header h2 { color: var(--white); }
+    .testimonials .section-header p { color: rgba(255,255,255,0.6); }
+    .testimonials .section-tag { color: var(--blue-light); }
+    .testimonial-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 36px;
+    }
+    .stars { color: #f4c150; font-size: 1.1rem; margin-bottom: 16px; letter-spacing: 2px; }
+    .testimonial-card p { color: rgba(255,255,255,0.85); font-style: italic; margin-bottom: 20px; line-height: 1.7; }
+    .testimonial-author { font-weight: 700; color: var(--white); }
+    .testimonial-role { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, var(--blue-accent) 0%, var(--navy) 100%);
+      text-align: center; padding: 100px 24px;
+    }
+    .cta h2 {
+      font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: 16px;
+    }
+    .cta p {
+      color: rgba(255,255,255,0.85); font-size: 1.1rem;
+      max-width: 500px; margin: 0 auto 36px;
+    }
+    .cta .btn-primary { background: var(--white); color: var(--navy); }
+    .cta .btn-primary:hover { background: var(--blue-pale); }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    }
+    .contact-info h3 { font-size: 1.5rem; color: var(--navy); margin-bottom: 20px; }
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-bottom: 24px;
+    }
+    .contact-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--blue-pale); color: var(--blue-accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .contact-item h4 { color: var(--navy); margin-bottom: 4px; }
+    .contact-item p { color: var(--gray-600); }
+    .contact-form {
+      background: var(--white); border-radius: 16px;
+      padding: 40px; box-shadow: var(--shadow-lg);
+    }
+    .contact-form h3 { font-size: 1.5rem; color: var(--navy); margin-bottom: 24px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block; font-weight: 600; font-size: 0.9rem;
+      color: var(--navy); margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%; padding: 12px 16px; border: 2px solid var(--gray-200);
+      border-radius: 8px; font-family: 'Open Sans', sans-serif;
+      font-size: 0.95rem; transition: border-color 0.2s;
+      background: var(--gray-100);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none; border-color: var(--blue-accent);
+      background: var(--white);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-submit {
+      width: 100%; padding: 16px;
+      background: var(--blue-accent); color: var(--white);
+      border: none; border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; font-size: 1rem; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: var(--navy); }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy-dark); color: rgba(255,255,255,0.7);
+      padding: 60px 0 30px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px; margin-bottom: 40px;
+    }
+    .footer-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800; font-size: 1.3rem; color: var(--white);
+      margin-bottom: 12px;
+    }
+    .footer-brand span { color: var(--blue-accent); }
+    footer h4 {
+      color: var(--white); font-family: 'Montserrat', sans-serif;
+      margin-bottom: 16px; font-size: 1rem;
+    }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 10px; }
+    footer ul a { color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    footer ul a:hover { color: var(--blue-accent); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px; text-align: center; font-size: 0.9rem;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--white); padding: 24px;
+        box-shadow: var(--shadow); gap: 20px;
+      }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img img { height: 350px; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item:first-child { grid-row: auto; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-content { padding-top: 100px; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-bar { grid-template-columns: 1fr 1fr; padding: 24px 16px; }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">VARGAS <span>PAINTING PROS</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact" class="nav-cta">Free Estimate</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Painting &amp; Pressure Washing</div>
+      <h1>Clean. Paint.<br><span>Transform.</span></h1>
+      <p>Professional painting and pressure washing services for residential and commercial properties. Quality craftsmanship you can trust.</p>
+      <div class="hero-buttons">
+        <a href="tel:+13362124712" class="btn btn-primary">&#9742; Call For Free Estimate</a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="container">
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Projects Completed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Satisfaction Rate</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Free</div>
+      <div class="stat-label">Estimates Always</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">What We Do</div>
+      <h2>Our Professional Services</h2>
+      <p>From interior makeovers to exterior transformations, we deliver results that exceed expectations.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&q=80" alt="Interior Painting">
+        </div>
+        <div class="service-body">
+          <h3>Interior Painting</h3>
+          <p>Transform your living spaces with flawless interior painting. We handle walls, ceilings, trim, and accent features with precision and care.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80" alt="Exterior Painting">
+        </div>
+        <div class="service-body">
+          <h3>Exterior Painting</h3>
+          <p>Boost your curb appeal with expert exterior painting. We use premium, weather-resistant paints for a finish that lasts for years.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="Pressure Washing">
+        </div>
+        <div class="service-body">
+          <h3>Pressure Washing</h3>
+          <p>Restore driveways, siding, decks, and patios to like-new condition. Our pressure washing removes years of grime and buildup.</p>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-img">
+          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80" alt="Cabinet Refinishing">
+        </div>
+        <div class="service-body">
+          <h3>Cabinet Refinishing</h3>
+          <p>Give your kitchen a fresh look without a full renovation. Our cabinet refinishing delivers stunning results at a fraction of the cost.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80" alt="Painting professional at work">
+        <div class="about-accent"></div>
+      </div>
+      <div class="about-content">
+        <div class="section-tag">About Us</div>
+        <h2>Your Trusted Local Painting Experts</h2>
+        <p>Vargas Painting Pros is a family-owned painting and pressure washing company committed to delivering exceptional results for every project. We take pride in our attention to detail and our dedication to customer satisfaction.</p>
+        <p>Whether it's a single room refresh or a complete commercial repaint, we bring the same level of professionalism and quality craftsmanship to every job.</p>
+        <ul class="about-features">
+          <li>
+            <div class="check-icon">&#10003;</div>
+            Licensed &amp; Insured Professionals
+          </li>
+          <li>
+            <div class="check-icon">&#10003;</div>
+            Premium Quality Paints &amp; Materials
+          </li>
+          <li>
+            <div class="check-icon">&#10003;</div>
+            Clean, Respectful &amp; On-Time Service
+          </li>
+          <li>
+            <div class="check-icon">&#10003;</div>
+            Free Detailed Estimates
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Our Work</div>
+      <h2>Recent Projects</h2>
+      <p>Browse our portfolio of completed painting and pressure washing projects.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Modern living room">
+        <div class="gallery-overlay"><span>Living Room Makeover</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80" alt="Exterior home">
+        <div class="gallery-overlay"><span>Exterior Repaint</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80" alt="Kitchen refinish">
+        <div class="gallery-overlay"><span>Kitchen Refresh</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Pressure washed driveway">
+        <div class="gallery-overlay"><span>Driveway Restoration</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="Painted exterior">
+        <div class="gallery-overlay"><span>Full Exterior Project</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Why Choose Us</div>
+      <h2>The Vargas Difference</h2>
+      <p>We go above and beyond to make sure every project is done right the first time.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">&#127912;</div>
+        <h3>Expert Craftsmanship</h3>
+        <p>Meticulous prep work and flawless application for a finish that looks incredible and lasts.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#128176;</div>
+        <h3>Honest Pricing</h3>
+        <p>Transparent, competitive quotes with no hidden fees. Free estimates on every project.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#9201;</div>
+        <h3>On-Time Delivery</h3>
+        <p>We respect your schedule. Projects are completed on time with minimal disruption to your day.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#128170;</div>
+        <h3>Satisfaction Guaranteed</h3>
+        <p>We're not done until you're thrilled with the results. Your satisfaction is our top priority.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Testimonials</div>
+      <h2>What Our Clients Say</h2>
+      <p>Don't just take our word for it — hear from our happy customers.</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Vargas Painting Pros transformed our entire home. The attention to detail was incredible, and the team was professional from start to finish. Highly recommend!"</p>
+        <div class="testimonial-author">Maria G.</div>
+        <div class="testimonial-role">Homeowner, Greensboro NC</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"They pressure washed our driveway and patio — it looks brand new! Great communication, fair price, and outstanding results. Will definitely use them again."</p>
+        <div class="testimonial-author">James T.</div>
+        <div class="testimonial-role">Homeowner, Raleigh NC</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"We hired them for our office building exterior and couldn't be happier. They worked around our schedule and the results speak for themselves. True professionals."</p>
+        <div class="testimonial-author">David R.</div>
+        <div class="testimonial-role">Business Owner, Durham NC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Ready to Transform Your Space?</h2>
+  <p>Get your free, no-obligation estimate today. We're ready to bring your vision to life.</p>
+  <a href="tel:+13362124712" class="btn btn-primary">&#9742; (336) 212-4712</a>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Get In Touch</div>
+      <h2>Contact Us Today</h2>
+      <p>Ready for your free estimate? Reach out and we'll get back to you right away.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Let's Talk About Your Project</h3>
+        <div class="contact-item">
+          <div class="contact-icon">&#9742;</div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+13362124712">+1 (336) 212-4712</a></p>
+            <p><a href="tel:+19192365515">+1 (919) 236-5515</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128205;</div>
+          <div>
+            <h4>Service Area</h4>
+            <p>Greensboro, Raleigh, Durham<br>and surrounding areas in NC</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#128337;</div>
+          <div>
+            <h4>Working Hours</h4>
+            <p>Mon - Sat: 7:00 AM - 6:00 PM<br>Sun: Closed</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Request a Free Estimate</h3>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(xxx) xxx-xxxx" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option value="interior">Interior Painting</option>
+              <option value="exterior">Exterior Painting</option>
+              <option value="pressure">Pressure Washing</option>
+              <option value="cabinet">Cabinet Refinishing</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Get My Free Estimate</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">VARGAS <span>PAINTING PROS</span></div>
+        <p>Professional painting and pressure washing services. Clean. Paint. Transform.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Interior Painting</a></li>
+          <li><a href="#services">Exterior Painting</a></li>
+          <li><a href="#services">Pressure Washing</a></li>
+          <li><a href="#services">Cabinet Refinishing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+13362124712">(336) 212-4712</a></li>
+          <li><a href="tel:+19192365515">(919) 236-5515</a></li>
+          <li>Greensboro &amp; Raleigh, NC</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Vargas Painting Pros. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+  // Close menu on link click
+  navLinks.querySelectorAll('a').forEach(link =>
+    link.addEventListener('click', () => navLinks.classList.remove('open'))
+  );
+
+  // Form submission
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you! We will contact you shortly with your free estimate.');
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
