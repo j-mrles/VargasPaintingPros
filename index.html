@@ -42,6 +42,23 @@
 
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
+    /* LANG TOGGLE */
+    .lang-toggle {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--gray-100); border: 2px solid var(--gray-200);
+      border-radius: 50px; padding: 4px; cursor: pointer;
+      font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700;
+      margin-left: 16px;
+    }
+    .lang-option {
+      padding: 6px 14px; border-radius: 50px;
+      transition: all 0.2s; color: var(--gray-600);
+      user-select: none;
+    }
+    .lang-option.active {
+      background: var(--blue-accent); color: var(--white);
+    }
+
     /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -59,7 +76,7 @@
       font-weight: 800; font-size: 1.25rem; color: var(--navy);
     }
     .nav-brand span { color: var(--blue-accent); }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
     .nav-links a {
       font-family: 'Montserrat', sans-serif;
       font-weight: 600; font-size: 0.9rem;
@@ -81,6 +98,7 @@
       width: 26px; height: 2.5px; background: var(--navy);
       border-radius: 2px; transition: 0.3s;
     }
+    .mobile-lang { display: none; }
 
     /* HERO */
     .hero {
@@ -400,6 +418,8 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
+      .mobile-lang { display: flex; margin-left: auto; margin-right: 12px; }
+      .nav-links .lang-toggle { display: none; }
       .nav-links.open {
         display: flex; flex-direction: column;
         position: absolute; top: 100%; left: 0; right: 0;
@@ -436,12 +456,22 @@
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-brand">VARGAS <span>PAINTING PROS</span></a>
+    <div class="lang-toggle mobile-lang" data-lang-toggle>
+      <div class="lang-option active" data-lang-btn="en">EN</div>
+      <div class="lang-option" data-lang-btn="es">ES</div>
+    </div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
-      <li><a href="#contact" class="nav-cta">Free Estimate</a></li>
+      <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+      <li><a href="#about" data-en="About" data-es="Nosotros">About</a></li>
+      <li><a href="#gallery" data-en="Gallery" data-es="Galeria">Gallery</a></li>
+      <li><a href="#testimonials" data-en="Reviews" data-es="Resenas">Reviews</a></li>
+      <li><a href="#contact" class="nav-cta" data-en="Free Estimate" data-es="Presupuesto Gratis">Free Estimate</a></li>
+      <li>
+        <div class="lang-toggle" data-lang-toggle>
+          <div class="lang-option active" data-lang-btn="en">EN</div>
+          <div class="lang-option" data-lang-btn="es">ES</div>
+        </div>
+      </li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -455,12 +485,12 @@
   <div class="container">
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-badge">Painting &amp; Pressure Washing</div>
-        <h1>Clean. Paint.<br><span>Transform.</span></h1>
-        <p>Professional painting and pressure washing services for residential and commercial properties. Quality craftsmanship you can trust.</p>
+        <div class="hero-badge" data-en="Painting &amp; Pressure Washing" data-es="Pintura &amp; Lavado a Presion">Painting &amp; Pressure Washing</div>
+        <h1 data-en="Clean. Paint.<br><span>Transform.</span>" data-es="Limpiar. Pintar.<br><span>Transformar.</span>">Clean. Paint.<br><span>Transform.</span></h1>
+        <p data-en="Professional painting and pressure washing services for residential and commercial properties. Quality craftsmanship you can trust." data-es="Servicios profesionales de pintura y lavado a presion para propiedades residenciales y comerciales. Calidad y confianza garantizada.">Professional painting and pressure washing services for residential and commercial properties. Quality craftsmanship you can trust.</p>
         <div class="hero-buttons">
-          <a href="tel:+13362124712" class="btn btn-primary">&#9742; Call For Free Estimate</a>
-          <a href="#services" class="btn btn-outline">Our Services</a>
+          <a href="tel:+13362124712" class="btn btn-primary" data-en="&#9742; Call For Free Estimate" data-es="&#9742; Llame Para Presupuesto Gratis">&#9742; Call For Free Estimate</a>
+          <a href="#services" class="btn btn-outline" data-en="Our Services" data-es="Nuestros Servicios">Our Services</a>
         </div>
       </div>
       <div class="hero-logo">
@@ -475,19 +505,19 @@
   <div class="stats-bar">
     <div class="stat">
       <div class="stat-num">500+</div>
-      <div class="stat-label">Projects Completed</div>
+      <div class="stat-label" data-en="Projects Completed" data-es="Proyectos Completados">Projects Completed</div>
     </div>
     <div class="stat">
       <div class="stat-num">100%</div>
-      <div class="stat-label">Satisfaction Rate</div>
+      <div class="stat-label" data-en="Satisfaction Rate" data-es="Tasa de Satisfaccion">Satisfaction Rate</div>
     </div>
     <div class="stat">
       <div class="stat-num">10+</div>
-      <div class="stat-label">Years Experience</div>
+      <div class="stat-label" data-en="Years Experience" data-es="Anos de Experiencia">Years Experience</div>
     </div>
     <div class="stat">
-      <div class="stat-num">Free</div>
-      <div class="stat-label">Estimates Always</div>
+      <div class="stat-num" data-en="Free" data-es="Gratis">Free</div>
+      <div class="stat-label" data-en="Estimates Always" data-es="Presupuestos Siempre">Estimates Always</div>
     </div>
   </div>
 </div>
@@ -496,9 +526,9 @@
 <section class="services" id="services">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">What We Do</div>
-      <h2>Our Professional Services</h2>
-      <p>From interior makeovers to exterior transformations, we deliver results that exceed expectations.</p>
+      <div class="section-tag" data-en="What We Do" data-es="Lo Que Hacemos">What We Do</div>
+      <h2 data-en="Our Professional Services" data-es="Nuestros Servicios Profesionales">Our Professional Services</h2>
+      <p data-en="From interior makeovers to exterior transformations, we deliver results that exceed expectations." data-es="Desde renovaciones interiores hasta transformaciones exteriores, entregamos resultados que superan las expectativas.">From interior makeovers to exterior transformations, we deliver results that exceed expectations.</p>
     </div>
     <div class="services-grid">
       <div class="service-card">
@@ -506,8 +536,8 @@
           <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&q=80" alt="Interior Painting">
         </div>
         <div class="service-body">
-          <h3>Interior Painting</h3>
-          <p>Transform your living spaces with flawless interior painting. We handle walls, ceilings, trim, and accent features with precision and care.</p>
+          <h3 data-en="Interior Painting" data-es="Pintura Interior">Interior Painting</h3>
+          <p data-en="Transform your living spaces with flawless interior painting. We handle walls, ceilings, trim, and accent features with precision and care." data-es="Transforme sus espacios con pintura interior impecable. Manejamos paredes, techos, molduras y detalles decorativos con precision y cuidado.">Transform your living spaces with flawless interior painting. We handle walls, ceilings, trim, and accent features with precision and care.</p>
         </div>
       </div>
       <div class="service-card">
@@ -515,8 +545,8 @@
           <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600&q=80" alt="Exterior Painting">
         </div>
         <div class="service-body">
-          <h3>Exterior Painting</h3>
-          <p>Boost your curb appeal with expert exterior painting. We use premium, weather-resistant paints for a finish that lasts for years.</p>
+          <h3 data-en="Exterior Painting" data-es="Pintura Exterior">Exterior Painting</h3>
+          <p data-en="Boost your curb appeal with expert exterior painting. We use premium, weather-resistant paints for a finish that lasts for years." data-es="Mejore la apariencia de su propiedad con pintura exterior experta. Usamos pinturas premium resistentes al clima para un acabado duradero.">Boost your curb appeal with expert exterior painting. We use premium, weather-resistant paints for a finish that lasts for years.</p>
         </div>
       </div>
       <div class="service-card">
@@ -524,8 +554,8 @@
           <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="Pressure Washing">
         </div>
         <div class="service-body">
-          <h3>Pressure Washing</h3>
-          <p>Restore driveways, siding, decks, and patios to like-new condition. Our pressure washing removes years of grime and buildup.</p>
+          <h3 data-en="Pressure Washing" data-es="Lavado a Presion">Pressure Washing</h3>
+          <p data-en="Restore driveways, siding, decks, and patios to like-new condition. Our pressure washing removes years of grime and buildup." data-es="Restaure entradas, revestimientos, terrazas y patios como nuevos. Nuestro lavado a presion elimina anos de suciedad acumulada.">Restore driveways, siding, decks, and patios to like-new condition. Our pressure washing removes years of grime and buildup.</p>
         </div>
       </div>
       <div class="service-card">
@@ -533,8 +563,8 @@
           <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80" alt="Cabinet Refinishing">
         </div>
         <div class="service-body">
-          <h3>Cabinet Refinishing</h3>
-          <p>Give your kitchen a fresh look without a full renovation. Our cabinet refinishing delivers stunning results at a fraction of the cost.</p>
+          <h3 data-en="Cabinet Refinishing" data-es="Restauracion de Gabinetes">Cabinet Refinishing</h3>
+          <p data-en="Give your kitchen a fresh look without a full renovation. Our cabinet refinishing delivers stunning results at a fraction of the cost." data-es="Dale a tu cocina un aspecto nuevo sin una renovacion completa. Nuestra restauracion de gabinetes ofrece resultados impresionantes a una fraccion del costo.">Give your kitchen a fresh look without a full renovation. Our cabinet refinishing delivers stunning results at a fraction of the cost.</p>
         </div>
       </div>
     </div>
@@ -550,26 +580,26 @@
         <div class="about-accent"></div>
       </div>
       <div class="about-content">
-        <div class="section-tag">About Us</div>
-        <h2>Your Trusted Local Painting Experts</h2>
-        <p>Vargas Painting Pros is a family-owned painting and pressure washing company committed to delivering exceptional results for every project. We take pride in our attention to detail and our dedication to customer satisfaction.</p>
-        <p>Whether it's a single room refresh or a complete commercial repaint, we bring the same level of professionalism and quality craftsmanship to every job.</p>
+        <div class="section-tag" data-en="About Us" data-es="Sobre Nosotros">About Us</div>
+        <h2 data-en="Your Trusted Local Painting Experts" data-es="Sus Expertos Locales de Pintura de Confianza">Your Trusted Local Painting Experts</h2>
+        <p data-en="Vargas Painting Pros is a family-owned painting and pressure washing company committed to delivering exceptional results for every project. We take pride in our attention to detail and our dedication to customer satisfaction." data-es="Vargas Painting Pros es una empresa familiar de pintura y lavado a presion comprometida con entregar resultados excepcionales en cada proyecto. Nos enorgullecemos de nuestra atencion al detalle y nuestra dedicacion a la satisfaccion del cliente.">Vargas Painting Pros is a family-owned painting and pressure washing company committed to delivering exceptional results for every project. We take pride in our attention to detail and our dedication to customer satisfaction.</p>
+        <p data-en="Whether it's a single room refresh or a complete commercial repaint, we bring the same level of professionalism and quality craftsmanship to every job." data-es="Ya sea una renovacion de una habitacion o una pintura comercial completa, llevamos el mismo nivel de profesionalismo y calidad a cada trabajo.">Whether it's a single room refresh or a complete commercial repaint, we bring the same level of professionalism and quality craftsmanship to every job.</p>
         <ul class="about-features">
           <li>
             <div class="check-icon">&#10003;</div>
-            Licensed &amp; Insured Professionals
+            <span data-en="Licensed &amp; Insured Professionals" data-es="Profesionales Licenciados y Asegurados">Licensed &amp; Insured Professionals</span>
           </li>
           <li>
             <div class="check-icon">&#10003;</div>
-            Premium Quality Paints &amp; Materials
+            <span data-en="Premium Quality Paints &amp; Materials" data-es="Pinturas y Materiales de Primera Calidad">Premium Quality Paints &amp; Materials</span>
           </li>
           <li>
             <div class="check-icon">&#10003;</div>
-            Clean, Respectful &amp; On-Time Service
+            <span data-en="Clean, Respectful &amp; On-Time Service" data-es="Servicio Limpio, Respetuoso y Puntual">Clean, Respectful &amp; On-Time Service</span>
           </li>
           <li>
             <div class="check-icon">&#10003;</div>
-            Free Detailed Estimates
+            <span data-en="Free Detailed Estimates" data-es="Presupuestos Detallados Gratis">Free Detailed Estimates</span>
           </li>
         </ul>
       </div>
@@ -581,30 +611,30 @@
 <section class="gallery" id="gallery">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">Our Work</div>
-      <h2>Recent Projects</h2>
-      <p>Browse our portfolio of completed painting and pressure washing projects.</p>
+      <div class="section-tag" data-en="Our Work" data-es="Nuestro Trabajo">Our Work</div>
+      <h2 data-en="Recent Projects" data-es="Proyectos Recientes">Recent Projects</h2>
+      <p data-en="Browse our portfolio of completed painting and pressure washing projects." data-es="Explore nuestro portafolio de proyectos de pintura y lavado a presion completados.">Browse our portfolio of completed painting and pressure washing projects.</p>
     </div>
     <div class="gallery-grid">
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" alt="Modern living room">
-        <div class="gallery-overlay"><span>Living Room Makeover</span></div>
+        <div class="gallery-overlay"><span data-en="Living Room Makeover" data-es="Renovacion de Sala">Living Room Makeover</span></div>
       </div>
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80" alt="Exterior home">
-        <div class="gallery-overlay"><span>Exterior Repaint</span></div>
+        <div class="gallery-overlay"><span data-en="Exterior Repaint" data-es="Repintado Exterior">Exterior Repaint</span></div>
       </div>
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80" alt="Kitchen refinish">
-        <div class="gallery-overlay"><span>Kitchen Refresh</span></div>
+        <div class="gallery-overlay"><span data-en="Kitchen Refresh" data-es="Renovacion de Cocina">Kitchen Refresh</span></div>
       </div>
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Pressure washed driveway">
-        <div class="gallery-overlay"><span>Driveway Restoration</span></div>
+        <div class="gallery-overlay"><span data-en="Driveway Restoration" data-es="Restauracion de Entrada">Driveway Restoration</span></div>
       </div>
       <div class="gallery-item">
         <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="Painted exterior">
-        <div class="gallery-overlay"><span>Full Exterior Project</span></div>
+        <div class="gallery-overlay"><span data-en="Full Exterior Project" data-es="Proyecto Exterior Completo">Full Exterior Project</span></div>
       </div>
     </div>
   </div>
@@ -614,30 +644,30 @@
 <section class="why-us">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">Why Choose Us</div>
-      <h2>The Vargas Difference</h2>
-      <p>We go above and beyond to make sure every project is done right the first time.</p>
+      <div class="section-tag" data-en="Why Choose Us" data-es="Por Que Elegirnos">Why Choose Us</div>
+      <h2 data-en="The Vargas Difference" data-es="La Diferencia Vargas">The Vargas Difference</h2>
+      <p data-en="We go above and beyond to make sure every project is done right the first time." data-es="Damos lo mejor para asegurarnos de que cada proyecto se haga bien desde la primera vez.">We go above and beyond to make sure every project is done right the first time.</p>
     </div>
     <div class="why-grid">
       <div class="why-card">
         <div class="why-icon">&#127912;</div>
-        <h3>Expert Craftsmanship</h3>
-        <p>Meticulous prep work and flawless application for a finish that looks incredible and lasts.</p>
+        <h3 data-en="Expert Craftsmanship" data-es="Artesania Experta">Expert Craftsmanship</h3>
+        <p data-en="Meticulous prep work and flawless application for a finish that looks incredible and lasts." data-es="Preparacion meticulosa y aplicacion impecable para un acabado que luce increible y perdura.">Meticulous prep work and flawless application for a finish that looks incredible and lasts.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">&#128176;</div>
-        <h3>Honest Pricing</h3>
-        <p>Transparent, competitive quotes with no hidden fees. Free estimates on every project.</p>
+        <h3 data-en="Honest Pricing" data-es="Precios Honestos">Honest Pricing</h3>
+        <p data-en="Transparent, competitive quotes with no hidden fees. Free estimates on every project." data-es="Cotizaciones transparentes y competitivas sin cargos ocultos. Presupuestos gratis en cada proyecto.">Transparent, competitive quotes with no hidden fees. Free estimates on every project.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">&#9201;</div>
-        <h3>On-Time Delivery</h3>
-        <p>We respect your schedule. Projects are completed on time with minimal disruption to your day.</p>
+        <h3 data-en="On-Time Delivery" data-es="Entrega Puntual">On-Time Delivery</h3>
+        <p data-en="We respect your schedule. Projects are completed on time with minimal disruption to your day." data-es="Respetamos su horario. Los proyectos se completan a tiempo con minima interrupcion a su dia.">We respect your schedule. Projects are completed on time with minimal disruption to your day.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">&#128170;</div>
-        <h3>Satisfaction Guaranteed</h3>
-        <p>We're not done until you're thrilled with the results. Your satisfaction is our top priority.</p>
+        <h3 data-en="Satisfaction Guaranteed" data-es="Satisfaccion Garantizada">Satisfaction Guaranteed</h3>
+        <p data-en="We're not done until you're thrilled with the results. Your satisfaction is our top priority." data-es="No terminamos hasta que usted este encantado con los resultados. Su satisfaccion es nuestra prioridad.">We're not done until you're thrilled with the results. Your satisfaction is our top priority.</p>
       </div>
     </div>
   </div>
@@ -647,28 +677,28 @@
 <section class="testimonials" id="testimonials">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">Testimonials</div>
-      <h2>What Our Clients Say</h2>
-      <p>Don't just take our word for it — hear from our happy customers.</p>
+      <div class="section-tag" data-en="Testimonials" data-es="Testimonios">Testimonials</div>
+      <h2 data-en="What Our Clients Say" data-es="Lo Que Dicen Nuestros Clientes">What Our Clients Say</h2>
+      <p data-en="Don't just take our word for it — hear from our happy customers." data-es="No solo tome nuestra palabra — escuche a nuestros clientes satisfechos.">Don't just take our word for it — hear from our happy customers.</p>
     </div>
     <div class="testimonial-grid">
       <div class="testimonial-card">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"Vargas Painting Pros transformed our entire home. The attention to detail was incredible, and the team was professional from start to finish. Highly recommend!"</p>
+        <p data-en="&quot;Vargas Painting Pros transformed our entire home. The attention to detail was incredible, and the team was professional from start to finish. Highly recommend!&quot;" data-es="&quot;Vargas Painting Pros transformo toda nuestra casa. La atencion al detalle fue increible y el equipo fue profesional de principio a fin. Altamente recomendados!&quot;">"Vargas Painting Pros transformed our entire home. The attention to detail was incredible, and the team was professional from start to finish. Highly recommend!"</p>
         <div class="testimonial-author">Maria G.</div>
-        <div class="testimonial-role">Homeowner, Greensboro NC</div>
+        <div class="testimonial-role" data-en="Homeowner, Greensboro NC" data-es="Propietaria, Greensboro NC">Homeowner, Greensboro NC</div>
       </div>
       <div class="testimonial-card">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"They pressure washed our driveway and patio — it looks brand new! Great communication, fair price, and outstanding results. Will definitely use them again."</p>
+        <p data-en="&quot;They pressure washed our driveway and patio — it looks brand new! Great communication, fair price, and outstanding results. Will definitely use them again.&quot;" data-es="&quot;Lavaron a presion nuestra entrada y patio — se ve como nuevo! Excelente comunicacion, precio justo y resultados sobresalientes. Definitivamente los usaremos de nuevo.&quot;">"They pressure washed our driveway and patio — it looks brand new! Great communication, fair price, and outstanding results. Will definitely use them again."</p>
         <div class="testimonial-author">James T.</div>
-        <div class="testimonial-role">Homeowner, Raleigh NC</div>
+        <div class="testimonial-role" data-en="Homeowner, Raleigh NC" data-es="Propietario, Raleigh NC">Homeowner, Raleigh NC</div>
       </div>
       <div class="testimonial-card">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>"We hired them for our office building exterior and couldn't be happier. They worked around our schedule and the results speak for themselves. True professionals."</p>
+        <p data-en="&quot;We hired them for our office building exterior and couldn't be happier. They worked around our schedule and the results speak for themselves. True professionals.&quot;" data-es="&quot;Los contratamos para el exterior de nuestro edificio de oficinas y no podriamos estar mas contentos. Trabajaron alrededor de nuestro horario y los resultados hablan por si solos. Verdaderos profesionales.&quot;">"We hired them for our office building exterior and couldn't be happier. They worked around our schedule and the results speak for themselves. True professionals."</p>
         <div class="testimonial-author">David R.</div>
-        <div class="testimonial-role">Business Owner, Durham NC</div>
+        <div class="testimonial-role" data-en="Business Owner, Durham NC" data-es="Dueno de Negocio, Durham NC">Business Owner, Durham NC</div>
       </div>
     </div>
   </div>
@@ -676,8 +706,8 @@
 
 <!-- CTA -->
 <section class="cta">
-  <h2>Ready to Transform Your Space?</h2>
-  <p>Get your free, no-obligation estimate today. We're ready to bring your vision to life.</p>
+  <h2 data-en="Ready to Transform Your Space?" data-es="Listo Para Transformar Su Espacio?">Ready to Transform Your Space?</h2>
+  <p data-en="Get your free, no-obligation estimate today. We're ready to bring your vision to life." data-es="Obtenga su presupuesto gratis y sin compromiso hoy. Estamos listos para hacer realidad su vision.">Get your free, no-obligation estimate today. We're ready to bring your vision to life.</p>
   <a href="tel:+13362124712" class="btn btn-primary">&#9742; (336) 212-4712</a>
 </section>
 
@@ -685,17 +715,17 @@
 <section class="contact" id="contact">
   <div class="container">
     <div class="section-header">
-      <div class="section-tag">Get In Touch</div>
-      <h2>Contact Us Today</h2>
-      <p>Ready for your free estimate? Reach out and we'll get back to you right away.</p>
+      <div class="section-tag" data-en="Get In Touch" data-es="Contactenos">Get In Touch</div>
+      <h2 data-en="Contact Us Today" data-es="Contactenos Hoy">Contact Us Today</h2>
+      <p data-en="Ready for your free estimate? Reach out and we'll get back to you right away." data-es="Listo para su presupuesto gratis? Comuniquese y le responderemos de inmediato.">Ready for your free estimate? Reach out and we'll get back to you right away.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-info">
-        <h3>Let's Talk About Your Project</h3>
+        <h3 data-en="Let's Talk About Your Project" data-es="Hablemos de Su Proyecto">Let's Talk About Your Project</h3>
         <div class="contact-item">
           <div class="contact-icon">&#9742;</div>
           <div>
-            <h4>Phone</h4>
+            <h4 data-en="Phone" data-es="Telefono">Phone</h4>
             <p><a href="tel:+13362124712">+1 (336) 212-4712</a></p>
             <p><a href="tel:+19192365515">+1 (919) 236-5515</a></p>
           </div>
@@ -703,51 +733,51 @@
         <div class="contact-item">
           <div class="contact-icon">&#128205;</div>
           <div>
-            <h4>Service Area</h4>
-            <p>Greensboro, Raleigh, Durham<br>and surrounding areas in NC</p>
+            <h4 data-en="Service Area" data-es="Area de Servicio">Service Area</h4>
+            <p data-en="Greensboro, Raleigh, Durham<br>and surrounding areas in NC" data-es="Greensboro, Raleigh, Durham<br>y areas cercanas en NC">Greensboro, Raleigh, Durham<br>and surrounding areas in NC</p>
           </div>
         </div>
         <div class="contact-item">
           <div class="contact-icon">&#128337;</div>
           <div>
-            <h4>Working Hours</h4>
-            <p>Mon - Sat: 7:00 AM - 6:00 PM<br>Sun: Closed</p>
+            <h4 data-en="Working Hours" data-es="Horario de Trabajo">Working Hours</h4>
+            <p data-en="Mon - Sat: 7:00 AM - 6:00 PM<br>Sun: Closed" data-es="Lun - Sab: 7:00 AM - 6:00 PM<br>Dom: Cerrado">Mon - Sat: 7:00 AM - 6:00 PM<br>Sun: Closed</p>
           </div>
         </div>
       </div>
       <div class="contact-form">
-        <h3>Request a Free Estimate</h3>
+        <h3 data-en="Request a Free Estimate" data-es="Solicite un Presupuesto Gratis">Request a Free Estimate</h3>
         <form id="contactForm">
           <div class="form-row">
             <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
+              <label for="name" data-en="Full Name" data-es="Nombre Completo">Full Name</label>
+              <input type="text" id="name" name="name" data-en-placeholder="Your name" data-es-placeholder="Su nombre" placeholder="Your name" required>
             </div>
             <div class="form-group">
-              <label for="phone">Phone Number</label>
+              <label for="phone" data-en="Phone Number" data-es="Numero de Telefono">Phone Number</label>
               <input type="tel" id="phone" name="phone" placeholder="(xxx) xxx-xxxx" required>
             </div>
           </div>
           <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com">
+            <label for="email" data-en="Email Address" data-es="Correo Electronico">Email Address</label>
+            <input type="email" id="email" name="email" data-en-placeholder="your@email.com" data-es-placeholder="su@correo.com" placeholder="your@email.com">
           </div>
           <div class="form-group">
-            <label for="service">Service Needed</label>
+            <label for="service" data-en="Service Needed" data-es="Servicio Necesitado">Service Needed</label>
             <select id="service" name="service">
-              <option value="">Select a service</option>
-              <option value="interior">Interior Painting</option>
-              <option value="exterior">Exterior Painting</option>
-              <option value="pressure">Pressure Washing</option>
-              <option value="cabinet">Cabinet Refinishing</option>
-              <option value="other">Other</option>
+              <option value="" data-en="Select a service" data-es="Seleccione un servicio">Select a service</option>
+              <option value="interior" data-en="Interior Painting" data-es="Pintura Interior">Interior Painting</option>
+              <option value="exterior" data-en="Exterior Painting" data-es="Pintura Exterior">Exterior Painting</option>
+              <option value="pressure" data-en="Pressure Washing" data-es="Lavado a Presion">Pressure Washing</option>
+              <option value="cabinet" data-en="Cabinet Refinishing" data-es="Restauracion de Gabinetes">Cabinet Refinishing</option>
+              <option value="other" data-en="Other" data-es="Otro">Other</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="message">Project Details</label>
-            <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
+            <label for="message" data-en="Project Details" data-es="Detalles del Proyecto">Project Details</label>
+            <textarea id="message" name="message" data-en-placeholder="Tell us about your project..." data-es-placeholder="Cuentenos sobre su proyecto..." placeholder="Tell us about your project..."></textarea>
           </div>
-          <button type="submit" class="btn-submit">Get My Free Estimate</button>
+          <button type="submit" class="btn-submit" data-en="Get My Free Estimate" data-es="Obtener Mi Presupuesto Gratis">Get My Free Estimate</button>
         </form>
       </div>
     </div>
@@ -760,28 +790,28 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">VARGAS <span>PAINTING PROS</span></div>
-        <p>Professional painting and pressure washing services. Clean. Paint. Transform.</p>
+        <p data-en="Professional painting and pressure washing services. Clean. Paint. Transform." data-es="Servicios profesionales de pintura y lavado a presion. Limpiar. Pintar. Transformar.">Professional painting and pressure washing services. Clean. Paint. Transform.</p>
       </div>
       <div>
-        <h4>Quick Links</h4>
+        <h4 data-en="Quick Links" data-es="Enlaces Rapidos">Quick Links</h4>
         <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+          <li><a href="#about" data-en="About Us" data-es="Nosotros">About Us</a></li>
+          <li><a href="#gallery" data-en="Gallery" data-es="Galeria">Gallery</a></li>
+          <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
         </ul>
       </div>
       <div>
-        <h4>Services</h4>
+        <h4 data-en="Services" data-es="Servicios">Services</h4>
         <ul>
-          <li><a href="#services">Interior Painting</a></li>
-          <li><a href="#services">Exterior Painting</a></li>
-          <li><a href="#services">Pressure Washing</a></li>
-          <li><a href="#services">Cabinet Refinishing</a></li>
+          <li><a href="#services" data-en="Interior Painting" data-es="Pintura Interior">Interior Painting</a></li>
+          <li><a href="#services" data-en="Exterior Painting" data-es="Pintura Exterior">Exterior Painting</a></li>
+          <li><a href="#services" data-en="Pressure Washing" data-es="Lavado a Presion">Pressure Washing</a></li>
+          <li><a href="#services" data-en="Cabinet Refinishing" data-es="Restauracion de Gabinetes">Cabinet Refinishing</a></li>
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h4 data-en="Contact" data-es="Contacto">Contact</h4>
         <ul>
           <li><a href="tel:+13362124712">(336) 212-4712</a></li>
           <li><a href="tel:+19192365515">(919) 236-5515</a></li>
@@ -790,12 +820,51 @@
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2026 Vargas Painting Pros. All rights reserved.
+      &copy; 2026 Vargas Painting Pros. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span>
     </div>
   </div>
 </footer>
 
 <script>
+  // Language switching
+  let currentLang = 'en';
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+
+    // Update all elements with data-en / data-es attributes
+    document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text !== null) el.innerHTML = text;
+    });
+
+    // Update placeholders
+    document.querySelectorAll('[data-' + lang + '-placeholder]').forEach(el => {
+      el.placeholder = el.getAttribute('data-' + lang + '-placeholder');
+    });
+
+    // Update select options
+    document.querySelectorAll('option[data-' + lang + ']').forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+
+    // Update toggle buttons
+    document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+    });
+
+    // Update form alert language
+    document.documentElement.setAttribute('data-current-lang', lang);
+  }
+
+  // Toggle click handlers
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.getAttribute('data-lang-btn'));
+    });
+  });
+
   // Mobile menu toggle
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
@@ -809,7 +878,11 @@
   // Form submission
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert('Thank you! We will contact you shortly with your free estimate.');
+    const lang = document.documentElement.getAttribute('data-current-lang') || 'en';
+    const msg = lang === 'es'
+      ? 'Gracias! Nos comunicaremos con usted pronto con su presupuesto gratis.'
+      : 'Thank you! We will contact you shortly with your free estimate.';
+    alert(msg);
     this.reset();
   });
 </script>
