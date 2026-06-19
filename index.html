@@ -94,9 +94,21 @@
       background: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1600&q=80') center/cover;
       opacity: 0.25;
     }
-    .hero-content {
+    .hero-inner {
       position: relative; z-index: 2;
-      max-width: 700px; padding: 120px 24px 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; width: 100%; padding: 120px 0 80px;
+    }
+    .hero-content {
+      max-width: 600px;
+    }
+    .hero-logo {
+      flex-shrink: 0;
+    }
+    .hero-logo img {
+      width: 420px; max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
     }
     .hero-badge {
       display: inline-block;
@@ -395,6 +407,9 @@
         box-shadow: var(--shadow); gap: 20px;
       }
       .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .hero-inner { flex-direction: column; text-align: center; }
+      .hero-logo img { width: 300px; }
+      .hero-buttons { justify-content: center; }
       .about-grid { grid-template-columns: 1fr; }
       .about-img img { height: 350px; }
       .gallery-grid {
@@ -438,13 +453,18 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">Painting &amp; Pressure Washing</div>
-      <h1>Clean. Paint.<br><span>Transform.</span></h1>
-      <p>Professional painting and pressure washing services for residential and commercial properties. Quality craftsmanship you can trust.</p>
-      <div class="hero-buttons">
-        <a href="tel:+13362124712" class="btn btn-primary">&#9742; Call For Free Estimate</a>
-        <a href="#services" class="btn btn-outline">Our Services</a>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">Painting &amp; Pressure Washing</div>
+        <h1>Clean. Paint.<br><span>Transform.</span></h1>
+        <p>Professional painting and pressure washing services for residential and commercial properties. Quality craftsmanship you can trust.</p>
+        <div class="hero-buttons">
+          <a href="tel:+13362124712" class="btn btn-primary">&#9742; Call For Free Estimate</a>
+          <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+      </div>
+      <div class="hero-logo">
+        <img src="logo-card.jpg" alt="Vargas Painting Pros Logo">
       </div>
     </div>
   </div>
